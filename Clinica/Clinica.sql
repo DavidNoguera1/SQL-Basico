@@ -1,7 +1,8 @@
+DROP DATABASE IF clinica EXIST 
 CREATE DATABASE clinica
 
-use clinica;
-
+USE clinica;
+/*Made by Mr Noguera*/
 /*Creando tabla tipoMascota*/
 CREATE TABLE tipoMascota (
   idTipo INT(10) PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -11,14 +12,14 @@ CREATE TABLE tipoMascota (
 /*Insertando datos a tabla tipoMascota*/
 insert into tipoMascota(tipo)
 values('Perro'),
-	  ('Gato'),
+	  	('Gato'),
       ('Loro'),
       ('Hamster'),
       ('Conejo'),
       ('Paloma'),
       ('Otro');
       
-
+     
 /*Creando tabla usuarios*/
 CREATE TABLE usuario (
   idPropietario INT(10) PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -46,14 +47,12 @@ CREATE TABLE mascotas (
   edad INT (10),
   raza VARCHAR(50),
   idTipo INT(10),
-  FOREIGN KEY (idTipo) REFERENCES tipoMascota(idTipo),
+  FOREIGN KEY (idTipo) REFERENCES tipoMascota(idTipo) ON DELETE CASCADE,
   idPropietario INT(10),
-  FOREIGN KEY (idPropietario) REFERENCES usuario(idPropietario)
+  FOREIGN KEY (idPropietario) REFERENCES usuario(idPropietario) ON DELETE CASCADE
 );
 
-/*Insertando datos a la tabla de mascotas*/
 /*Insertando datos a la tabla de mascotas*/
 INSERT INTO mascotas (nombre, imagen, edad, raza, idTipo, idPropietario)
 VALUES ('yuya', 'yuya.jpg', 12, 'Labrador', 1, 1),
        ('felix', 'felix.jpg', 10, 'Mestizo', 2, 2);
-
