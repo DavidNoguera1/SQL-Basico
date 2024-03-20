@@ -1,6 +1,6 @@
 SELECT 
-m.nombre AS NombreMascota, m.edad AS Edad, u.nombres AS Propietario, u.telefono AS Telefono, tm.tipo AS Tipo , m.raza AS Raza
+m.nombre AS NombreMascota, tr.tipo AS tratamiento ,m.edad AS Edad, pr.nombres AS Propietario, pr.telefono AS Telefono, tm.tipo AS Tipo , m.raza AS Raza
 FROM mascotas m
-JOIN usuario u ON m.idPropietario = u.idPropietario
-JOIN tipoMascota tm ON m.idTipo = tm.idTipo;
-
+JOIN propietarios pr ON m.idPropietario = pr.idPropietario
+JOIN tipoMascota tm ON m.idTipo = tm.idTipo
+JOIN tratamiento tr ON m.idTratamiento = tr.idTratamiento;
