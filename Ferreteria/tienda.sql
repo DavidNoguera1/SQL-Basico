@@ -51,3 +51,26 @@ INSERT INTO ventas (idProducto, idCliente, cantidad) VALUES
 (2, 3, 3),
 (5, 4, 1),
 (4, 5, 2);
+
+-- Creacion de vista (Solo sirven como consultas)
+USE tienda;
+CREATE  OR REPLACE VIEW v_ventas AS
+SELECT v.cantidad,p.idProducto,p.nombreProducto,p.precio,c.idCliente,c.nombre,c.email
+FROM ventas v
+JOIN productos p
+ON v.idProducto = p.idProducto
+JOIN clientes c
+ON v.idCliente = c.idCliente;
+
+-- Creacion de un metodo
+DELIMITER $$
+USE tienda$$
+CREATE PROCEDURE insertarCliente (
+	IN nombre VARCHAR(100),
+	IN email VARCHAR(100)
+)
+BEGIN
+INSERT INTO clientes ( nombre, email) 
+VALUES(nombre, email);
+END$$
+DELIMITER ;
