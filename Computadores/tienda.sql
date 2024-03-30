@@ -35,7 +35,6 @@ values('Computador todo en uno'),
       
 
 /*Creando tabla computadores*/
-
 CREATE TABLE computador (
   idComputadores INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   procesador VARCHAR(100),
