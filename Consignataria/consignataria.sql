@@ -84,7 +84,7 @@ INSERT INTO AutomovilCaracteristica (idAutomovil, idCaracteristica) VALUES
 (5, 2), -- Sistema de Navegación GPS
 (5, 4); -- Sunroof
 
--- Procedimiento almacenado para crear una marca
+tienda-- Procedimiento almacenado para crear una marca
 
 DELIMITER //
 CREATE PROCEDURE InsertarMarca (
