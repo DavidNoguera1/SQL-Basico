@@ -35,6 +35,7 @@ values('Computador todo en uno'),
       
 
 /*Creando tabla computadores*/
+
 CREATE TABLE computador (
   idComputadores INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   procesador VARCHAR(100),
@@ -42,9 +43,9 @@ CREATE TABLE computador (
   almacenamiento VARCHAR(100),
   precio DECIMAL(10,2),
   idMarca INT,
-  FOREIGN KEY (idMarca) REFERENCES marcas(idMarca) ON DELETE CASCADE,
+  FOREIGN KEY (idMarca) REFERENCES marcas(idMarca) ON DELETE CASCADE ON UPDATE CASCADE,
   idCategoria INT,
-  FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria) ON DELETE CASCADE,
+  FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria) ON DELETE CASCADE ON UPDATE CASCADE,
   descripcion TEXT
 );
 
@@ -53,5 +54,14 @@ VALUES ('Intel Core i7', '16GB', '512GB SSD', 1200.00, 1, 2, 'Computador de escr
 
 
 
+-- Procedimiento almacenado para crear una marca
 
+tiendaDELIMITER //
+CREATE PROCEDURE InsertarMarca (
+    IN nombreMarca VARCHAR(100)
+)
+BEGIN
+    INSERT INTO marcas (marca) VALUES (nombreMarca);
+END //
+DELIMITER ;
 
