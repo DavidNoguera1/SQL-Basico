@@ -44,7 +44,7 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card bg-dark text-light p-3">
       <h1 class="text-center">Formulario</h1>
-      <form action="sv_agregarMarca" method="POST">
+      <form action="SvAgregar" method="POST">
         <div class="form-group">
           <label for="marca" class="text-light">Marca</label>
           <input type="text" name="marcas" class="form-control" id="marca">
