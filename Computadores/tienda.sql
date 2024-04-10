@@ -56,7 +56,7 @@ VALUES ('Intel Core i7', '16GB', '512GB SSD', 1200.00, 1, 2, 'Computador de escr
 
 -- Procedimiento almacenado para crear una marca
 
-tiendaDELIMITER //
+DELIMITER //
 CREATE PROCEDURE InsertarMarca (
     IN nombreMarca VARCHAR(100)
 )
